@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://cneuj5ikqx3t2"]
+
+[ext_resource type="Script" uid="uid://conhr3xxefvqb" path="res://scripts/fan.gd" id="1_h3fxe"]
+[ext_resource type="Texture2D" uid="uid://bxmpgwr0rcfpl" path="res://assets/Fan/Off.png" id="1_ib1wi"]
+[ext_resource type="Texture2D" uid="uid://oepk5o6tx2go" path="res://assets/Fan/On (24x8).png" id="2_h3fxe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05mpp"]
+atlas = ExtResource("2_h3fxe")
+region = Rect2(0, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01qld"]
+atlas = ExtResource("2_h3fxe")
+region = Rect2(24, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wrgw"]
+atlas = ExtResource("2_h3fxe")
+region = Rect2(48, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b17ye"]
+atlas = ExtResource("2_h3fxe")
+region = Rect2(72, 0, 24, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nu1et"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ib1wi")
+}],
+"loop": false,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05mpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01qld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wrgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b17ye")
+}],
+"loop": true,
+"name": &"on",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3fxe"]
+size = Vector2(17.400002, 22.550007)
+
+[node name="fan" type="Area2D"]
+scale = Vector2(5, 5)
+collision_mask = 2
+script = ExtResource("1_h3fxe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nu1et")
+animation = &"on"
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.10000019, -6.524998)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_h3fxe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

@@ -1,0 +1,137 @@
+[gd_scene load_steps=19 format=3 uid="uid://cu5q74dytohqf"]
+
+[ext_resource type="Texture2D" uid="uid://fn6mqd4k5ogt" path="res://assets/Soldier_1/Walk.png" id="1_cl6fb"]
+[ext_resource type="Script" uid="uid://cd5e2whlmhfna" path="res://scripts/soldier_1.gd" id="1_nbm24"]
+[ext_resource type="Texture2D" uid="uid://dy06dv5peaogx" path="res://assets/Soldier_1/Dead.png" id="2_lbwi6"]
+[ext_resource type="PackedScene" uid="uid://cliuigv1t2hdt" path="res://scenes/killzone.tscn" id="3_k0oms"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akmkg"]
+atlas = ExtResource("2_lbwi6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvb52"]
+atlas = ExtResource("2_lbwi6")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drmgu"]
+atlas = ExtResource("2_lbwi6")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vhsk"]
+atlas = ExtResource("2_lbwi6")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbm24"]
+atlas = ExtResource("1_cl6fb")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0oms"]
+atlas = ExtResource("1_cl6fb")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbwi6"]
+atlas = ExtResource("1_cl6fb")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gr8c7"]
+atlas = ExtResource("1_cl6fb")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbbwx"]
+atlas = ExtResource("1_cl6fb")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4o4c"]
+atlas = ExtResource("1_cl6fb")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjw2l"]
+atlas = ExtResource("1_cl6fb")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_akmkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akmkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvb52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drmgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vhsk")
+}],
+"loop": false,
+"name": &"death",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbm24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0oms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbwi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gr8c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbbwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4o4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjw2l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvb52"]
+size = Vector2(17.826088, 52.608696)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfvx1"]
+size = Vector2(10.869566, 11.521739)
+
+[node name="soldier_1" type="Node2D"]
+scale = Vector2(2.3, 2.3)
+script = ExtResource("1_nbm24")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_akmkg")
+frame_progress = 0.8760512
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-0.86956525, 11.739131)
+target_position = Vector2(20.000002, 0)
+
+[node name="area2d" parent="." instance=ExtResource("3_k0oms")]
+collision_mask = 2
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area2d"]
+position = Vector2(-5.0000005, 37.608696)
+shape = SubResource("RectangleShape2D_bvb52")
+
+[node name="visionraycast" type="RayCast2D" parent="."]
+position = Vector2(-2.173913, 19.565218)
+target_position = Vector2(68.26087, 0)
+collision_mask = 3
+
+[node name="kill_enemy" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill_enemy"]
+position = Vector2(-5, 2.6086957)
+shape = SubResource("RectangleShape2D_hfvx1")
+
+[connection signal="body_entered" from="area2d" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="kill_enemy" to="." method="_on_kill_enemy_body_entered"]

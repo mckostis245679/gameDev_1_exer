@@ -5,7 +5,7 @@ extends Node2D
 @onready var visionraycast: RayCast2D = $visionraycast
 @onready var area_2d: Area2D = $area2d
 @onready var kill_enemy: Area2D = $kill_enemy
-
+@export var strength: float = -1400.0
 
 var speed:=80.0
 var direction:=1
@@ -32,21 +32,22 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	kill_enemy.monitoring = false
-	await get_tree().create_timer(0.3).timeout
-	get_tree().reload_current_scene()# Replace with function body.
-	
+	Autoload.current_health-=0.5
+
 
 
 func _on_kill_enemy_body_entered(body: Node2D) -> void:
 	isdead=true
 	speed = 0
 	direction = 0
-
+	Autoload.enemies_killed+=1
 	ray_cast_2d.enabled = false
 	visionraycast.enabled = false
 	area_2d.monitoring = false
 	kill_enemy.monitoring = false
 	animated_sprite.play("death")
+	AudioController.play_enemyDeath()
+	body.bounce(strength)
 	await animated_sprite.animation_finished
 
 	queue_free()

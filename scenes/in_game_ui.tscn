@@ -1,0 +1,839 @@
+[gd_scene load_steps=31 format=3 uid="uid://da34jmpsvkw8j"]
+
+[ext_resource type="Texture2D" uid="uid://d0mbvhbi4i6t5" path="res://assets/Terrain/Terrain (16x16).png" id="1_fnge6"]
+[ext_resource type="Script" uid="uid://2w2el3kjeeyl" path="res://scripts/popup_menu.gd" id="1_ria60"]
+[ext_resource type="Texture2D" uid="uid://c27pooth76hlh" path="res://assets/Menu/Buttons/Pink Buttons Icons.png" id="2_a45jx"]
+[ext_resource type="Script" uid="uid://dbkuslx328xbb" path="res://scripts/stat_d_isplay.gd" id="3_fqvwy"]
+[ext_resource type="FontFile" uid="uid://c4tcopesvrx8a" path="res://assets/Menu/Text/karmatic-arcade/ka1.ttf" id="4_ria60"]
+[ext_resource type="Texture2D" uid="uid://dvfvhobfnf5m" path="res://assets/Zero Sprites/Run/spr_run_2.png" id="6_04xgm"]
+[ext_resource type="Texture2D" uid="uid://dnb4h7nmcex38" path="res://assets/Zero Sprites/Jump/spr_jump_0.png" id="7_qinws"]
+[ext_resource type="Texture2D" uid="uid://b86207ajvks8x" path="res://assets/Menu/Buttons/Close.png" id="8_jlb72"]
+[ext_resource type="Texture2D" uid="uid://54nyffkpe8hf" path="res://assets/Menu/Buttons/button UI.png" id="9_qinws"]
+[ext_resource type="PackedScene" uid="uid://bs8o5kfkltfk8" path="res://audio/h_slider.tscn" id="10_huati"]
+[ext_resource type="Texture2D" uid="uid://dcubsvt8odw2f" path="res://assets/Zero Sprites/Idle/spr_casual_idle_0.png" id="11_yjjyl"]
+[ext_resource type="Script" uid="uid://duior4yqb710i" path="res://scenes/health.gd" id="12_yjjyl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fqvwy"]
+texture = ExtResource("2_a45jx")
+region_rect = Rect2(1, 257, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ria60"]
+texture = ExtResource("2_a45jx")
+region_rect = Rect2(65, 257, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fnge6"]
+texture = ExtResource("2_a45jx")
+region_rect = Rect2(97, 129, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a45jx"]
+texture = ExtResource("2_a45jx")
+region_rect = Rect2(161, 129, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qwj3"]
+texture = ExtResource("2_a45jx")
+region_rect = Rect2(289, 33, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_276nr"]
+texture = ExtResource("2_a45jx")
+region_rect = Rect2(353, 33, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_04xgm"]
+texture = ExtResource("2_a45jx")
+region_rect = Rect2(193, 97, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qinws"]
+texture = ExtResource("2_a45jx")
+region_rect = Rect2(257, 97, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_huati"]
+texture = ExtResource("8_jlb72")
+region_rect = Rect2(1, 1, 13, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yjjyl"]
+texture = ExtResource("9_qinws")
+region_rect = Rect2(65, 65, 14, 14)
+
+[sub_resource type="Animation" id="Animation_yjjyl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mainmenu:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mainmenu/baseMenuScreen/NinePatchRect/MarginContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mainmenu/baseMenuScreen/NinePatchRect:custom_minimum_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 200)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("mainmenu/baseMenuScreen/NinePatchRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("help/NinePatchRect/MarginContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("help/NinePatchRect:custom_minimum_size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(300, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("settings/NinePatchRect:custom_minimum_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("settings/NinePatchRect/MarginContainer:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("help:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("settings:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gxplc"]
+resource_name = "close_help"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("help/NinePatchRect:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13028914, 0.39317343, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(300, 350), Vector2(300, 330), Vector2(300, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("help/NinePatchRect/MarginContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13028914),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("help:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ve7rr"]
+resource_name = "clase_mainmenu"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mainmenu/baseMenuScreen/NinePatchRect:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20177522, 0.3908674),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(430, 200), Vector2(330, 200), Vector2(0, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mainmenu/baseMenuScreen/NinePatchRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mainmenu/baseMenuScreen/NinePatchRect/MarginContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.20177522),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("mainmenu:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_y1m1a"]
+resource_name = "close_settings"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("settings/NinePatchRect/MarginContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12567714),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("settings/NinePatchRect:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12567714, 0.38049042, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(300, 350), Vector2(300, 330), Vector2(300, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("settings:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_luu0w"]
+resource_name = "open_help"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("help/NinePatchRect/MarginContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.39778543),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("help/NinePatchRect:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12567714, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(300, 0), Vector2(300, 330), Vector2(300, 350)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("help:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_huati"]
+resource_name = "open_mainmenu"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mainmenu:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mainmenu/baseMenuScreen/NinePatchRect/MarginContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.29747432),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mainmenu/baseMenuScreen/NinePatchRect:custom_minimum_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.10146411, 0.29747432, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 200), Vector2(330, 200), Vector2(430, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_mv4mu"]
+resource_name = "open_settings"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("settings/NinePatchRect:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12913615, 0.3666544, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(300, 0), Vector2(300, 330), Vector2(300, 350)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("settings/NinePatchRect/MarginContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3666544),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("settings:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ve7rr"]
+_data = {
+&"RESET": SubResource("Animation_yjjyl"),
+&"close_help": SubResource("Animation_gxplc"),
+&"close_mainmenu": SubResource("Animation_ve7rr"),
+&"close_settings": SubResource("Animation_y1m1a"),
+&"open_help": SubResource("Animation_luu0w"),
+&"open_mainmenu": SubResource("Animation_huati"),
+&"open_settings": SubResource("Animation_mv4mu")
+}
+
+[node name="InGameUI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="popupMenu" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -120.0
+offset_right = 250.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ria60")
+
+[node name="mainmenu" type="VBoxContainer" parent="popupMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="baseMenuScreen" type="MarginContainer" parent="popupMenu/mainmenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="popupMenu/mainmenu/baseMenuScreen"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+texture = ExtResource("1_fnge6")
+region_rect = Rect2(272, 64, 48, 48)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="popupMenu/mainmenu/baseMenuScreen/NinePatchRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 15
+
+[node name="ButtonsDisplay" type="VBoxContainer" parent="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="TopButtons" type="HBoxContainer" parent="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer/ButtonsDisplay"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="helpbutton" type="Button" parent="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer/ButtonsDisplay/TopButtons"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_fqvwy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ria60")
+
+[node name="NextLevel" type="Button" parent="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer/ButtonsDisplay/TopButtons"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_fnge6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_a45jx")
+
+[node name="BottomButtonsns" type="HBoxContainer" parent="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer/ButtonsDisplay"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 10
+
+[node name="Settings" type="Button" parent="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer/ButtonsDisplay/BottomButtonsns"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_6qwj3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_276nr")
+
+[node name="Quit" type="Button" parent="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer/ButtonsDisplay/BottomButtonsns"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_04xgm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qinws")
+
+[node name="statDIsplay" type="VBoxContainer" parent="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+script = ExtResource("3_fqvwy")
+
+[node name="MelonDisplay" type="Label" parent="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer/statDIsplay"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.93333334, 0.56078434, 0.79607844, 1)
+theme_override_fonts/font = ExtResource("4_ria60")
+theme_override_font_sizes/font_size = 23
+text = "MELONS"
+
+[node name="ScoreDisplay" type="Label" parent="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer/statDIsplay"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93333334, 0.56078434, 0.79607844, 1)
+theme_override_fonts/font = ExtResource("4_ria60")
+theme_override_font_sizes/font_size = 23
+text = "SCORE::"
+
+[node name="help" type="MarginContainer" parent="popupMenu"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="popupMenu/help"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_fnge6")
+region_rect = Rect2(320, 64, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="popupMenu/help/NinePatchRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="popupMenu/help/NinePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Title" type="HBoxContainer" parent="popupMenu/help/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 2
+
+[node name="HowToPlayDisplay" type="Label" parent="popupMenu/help/NinePatchRect/MarginContainer/VBoxContainer/Title"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ria60")
+theme_override_font_sizes/font_size = 23
+text = "HOw to play"
+
+[node name="Body" type="VBoxContainer" parent="popupMenu/help/NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="popupMenu/help/NinePatchRect/MarginContainer/VBoxContainer/Body"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = -7
+
+[node name="ControlsDisplay" type="Label" parent="popupMenu/help/NinePatchRect/MarginContainer/VBoxContainer/Body/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.93333334, 0.56078434, 0.79607844, 1)
+theme_override_fonts/font = ExtResource("4_ria60")
+theme_override_font_sizes/font_size = 23
+text = "A - MOVE LEFT
+
+D - MOVE RIGHT
+
+SPACE  - JUMP
+
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="popupMenu/help/NinePatchRect/MarginContainer/VBoxContainer/Body/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -13
+
+[node name="TextureRect" type="TextureRect" parent="popupMenu/help/NinePatchRect/MarginContainer/VBoxContainer/Body/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("6_04xgm")
+expand_mode = 1
+stretch_mode = 4
+flip_h = true
+
+[node name="TextureRect3" type="TextureRect" parent="popupMenu/help/NinePatchRect/MarginContainer/VBoxContainer/Body/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("6_04xgm")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="popupMenu/help/NinePatchRect/MarginContainer/VBoxContainer/Body/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("7_qinws")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="exitButton" type="VBoxContainer" parent="popupMenu/help/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="popupMenu/help/NinePatchRect/MarginContainer/exitButton"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = -24
+theme_override_constants/margin_right = -11
+
+[node name="exithelp" type="Button" parent="popupMenu/help/NinePatchRect/MarginContainer/exitButton/MarginContainer"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_huati")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yjjyl")
+
+[node name="settings" type="MarginContainer" parent="popupMenu"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="popupMenu/settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_fnge6")
+region_rect = Rect2(320, 64, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="popupMenu/settings/NinePatchRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="popupMenu/settings/NinePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Title" type="HBoxContainer" parent="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 2
+
+[node name="Settings" type="Label" parent="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Title"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ria60")
+theme_override_font_sizes/font_size = 23
+text = "settings"
+
+[node name="Body" type="VBoxContainer" parent="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Master" type="Label" parent="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Body"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ria60")
+theme_override_font_sizes/font_size = 18
+text = "Master"
+
+[node name="master" parent="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Body" instance=ExtResource("10_huati")]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.5
+value = 1.0
+
+[node name="sound effects" type="Label" parent="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Body"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ria60")
+theme_override_font_sizes/font_size = 18
+text = "SFX"
+
+[node name="sfx" parent="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Body" instance=ExtResource("10_huati")]
+layout_mode = 2
+max_value = 1.5
+value = 1.0
+script = null
+
+[node name="Master3" type="Label" parent="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Body"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ria60")
+theme_override_font_sizes/font_size = 18
+text = "MUSIC"
+
+[node name="music" parent="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Body" instance=ExtResource("10_huati")]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.5
+value = 1.0
+script = null
+
+[node name="TextureRect" type="TextureRect" parent="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Body"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("11_yjjyl")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="exitButton" type="VBoxContainer" parent="popupMenu/settings/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="popupMenu/settings/NinePatchRect/MarginContainer/exitButton"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = -24
+theme_override_constants/margin_right = -11
+
+[node name="exitsettings" type="Button" parent="popupMenu/settings/NinePatchRect/MarginContainer/exitButton/MarginContainer"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_huati")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yjjyl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="popupMenu"]
+libraries = {
+&"": SubResource("AnimationLibrary_ve7rr")
+}
+
+[node name="health" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_yjjyl")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="health"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_fnge6")
+region_rect = Rect2(272, 16, 48, 5)
+patch_margin_left = 2
+patch_margin_right = 2
+
+[connection signal="pressed" from="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer/ButtonsDisplay/TopButtons/helpbutton" to="popupMenu" method="_on_helpbutton_pressed"]
+[connection signal="pressed" from="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer/ButtonsDisplay/TopButtons/NextLevel" to="popupMenu" method="_on_next_level_pressed"]
+[connection signal="pressed" from="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer/ButtonsDisplay/BottomButtonsns/Settings" to="popupMenu" method="_on_settings_pressed"]
+[connection signal="pressed" from="popupMenu/mainmenu/baseMenuScreen/NinePatchRect/MarginContainer/ButtonsDisplay/BottomButtonsns/Quit" to="popupMenu" method="_on_quit_pressed"]
+[connection signal="pressed" from="popupMenu/help/NinePatchRect/MarginContainer/exitButton/MarginContainer/exithelp" to="popupMenu" method="_on_exithelp_pressed"]
+[connection signal="value_changed" from="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Body/master" to="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Body/master" method="_on_value_changed"]
+[connection signal="value_changed" from="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Body/sfx" to="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Body/master" method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Body/music" to="popupMenu/settings/NinePatchRect/MarginContainer/VBoxContainer/Body/master" method="_on_music_value_changed"]
+[connection signal="pressed" from="popupMenu/settings/NinePatchRect/MarginContainer/exitButton/MarginContainer/exitsettings" to="popupMenu" method="_on_exitsettings_pressed"]

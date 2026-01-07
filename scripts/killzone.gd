@@ -4,8 +4,9 @@ extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
+	AudioController.play_playeDeath()
+	Engine.time_scale=1
 	timer.start()
-
  
 
 func _on_timer_timeout() -> void:
